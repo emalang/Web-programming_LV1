@@ -52,17 +52,69 @@ header {
     margin-top: 20px;
 }
 
-/* Kružni grafikon - CSS samo */
-.pie-chart {
-    width: 150px;
-    height: 150px;
+:root{
+     --drama: #3498db;
+    --komedija: #2ecc71;
+    --akcija: #f1c40f;
+    --ostalo: #e74c3c;
+    --chart-size: 180px;
+}
+
+.chart-wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:30px;
+}
+
+.chart-wrapper figure{
+    display:flex;
+    align-items: center;
+    gap:30px;
+    flex-wrap:wrap;
+    margin:0;
+}
+
+.pie-visual{
+    width: var(--chart-size);
+    height: var(--chart-size);
     border-radius: 50%;
     background: conic-gradient(
-        #3498db 0% 40%,  /* Industrija */
-        #2ecc71 40% 75%,  /* Kućanstva */
-        #f1c40f 75% 100%  /* Transport */
+         var(--drama) 0% 26.3%,
+        var(--komedija) 26.3% 52.6%,
+        var(--akcija) 52.6% 63.1%,
+        var(--ostalo) 63.1% 100%
     );
     margin: 0 auto;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.pie-visual:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.25);
+}
+
+.pie-chart{
+    list-style: none;
+    padding:0;
+    margin:0;
+    text-align: left;
+}
+
+.pie-chart li {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.pie-chart li {
+    margin: 10px 0;
+    font-size: 16px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.pie-chart li:hover {
+    transform: translateX(5px);
+    color: #111;
 }
 
 /* Flexbox analiza sekcija */
@@ -146,6 +198,15 @@ footer {
 
     aside{
         width:100%;
+    }
+
+    .chart-wrapper figure {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .pie-chart {
+        text-align: center;
     }
 }
 
